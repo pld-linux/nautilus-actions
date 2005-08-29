@@ -29,6 +29,8 @@ pliku wybranym w Nautilusie.
 %setup -q
 %patch0 -p1
 
+sed -i -e 's/gcc/%{__cc} %{rpmcflags}/' Makefile
+
 %build
 %{__make}
 
@@ -36,7 +38,8 @@ pliku wybranym w Nautilusie.
 rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT
+	DESTDIR=$RPM_BUILD_ROOT \
+	libdir=%{_libdir}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
