@@ -1,0 +1,19 @@
+diff -urN nautilus-actions-0.4.orig/nact/nact.desktop.template nautilus-actions-0.4/nact/nact.desktop.template
+--- nautilus-actions-0.4.orig/nact/nact.desktop.template	2005-08-29 15:31:58.754512144 +0200
++++ nautilus-actions-0.4/nact/nact.desktop.template	2005-08-29 15:35:01.440739616 +0200
+@@ -2,11 +2,10 @@
+ Version=%%%VERSION%%%
+ Encoding=UTF-8
+ Name=Nautilus Actions Configuration
+-Type=Application
++Name[pl]=Konfiguracja akcji Nautilusa
+ Comment=Add items to the Nautilus context menu
++Comment[pl]=Dodaje elementy do menu kontekstowego Nautilusa
++Type=Application
+ Exec=nact
+ Icon=%%%DATA_DIR%%%/nautilus-launch-icon.png
+-Categories=Application;FileManager;DesktopSettings;Settings;AdvancedSettings;
+-#Categories=GNOME;Application;SystemSetup
+-GenericName[en_US]=Nautilus Actions Configuration Tool
+-Name[en_US]=Nautilus Actions Configuration
++Categories=GTK;GNOME;Settings;AdvancedSettings;X-Capplet;
