@@ -1,12 +1,12 @@
 Summary:	Nautilus extension which adds customized command in Nautilus menu
 Summary(pl):	Rozszerzenie dodaj±ce w³asne polecenia w menu Nautilusa
 Name:		nautilus-actions
-Version:	0.4
+Version:	0.5
 Release:	1
 License:	GPL v2
 Group:		X11/Applications
 Source0:	%{name}-%{version}.tar.gz
-# Source0-md5:	cfc0d0e580c176870049bdfc3f894e6d
+# Source0-md5:	c3606d293eb4cf0d49dcaa603169ddfd
 Patch0:		%{name}-desktop.patch
 URL:		http://www.grumz.net/?q=taxonomy/term/2/9
 BuildRequires:	glib2-devel >= 1:2.6.0
