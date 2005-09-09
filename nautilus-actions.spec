@@ -1,20 +1,25 @@
 Summary:	Nautilus extension which adds customized command in Nautilus menu
 Summary(pl):	Rozszerzenie dodaj±ce w³asne polecenia w menu Nautilusa
 Name:		nautilus-actions
-Version:	0.5
+Version:	0.6
 Release:	1
 License:	GPL v2
 Group:		X11/Applications
 Source0:	%{name}-%{version}.tar.gz
-# Source0-md5:	c3606d293eb4cf0d49dcaa603169ddfd
+# Source0-md5:	106b7ec91d38348f728cde4972dffa96
 Patch0:		%{name}-desktop.patch
 URL:		http://www.grumz.net/?q=taxonomy/term/2/9
-BuildRequires:	glib2-devel >= 1:2.6.0
+BuildRequires:	autoconf >= 2.52
+BuildRequires:	gettext-devel
+BuildRequires:	glib2-devel >= 1:2.8.1
+BuildRequires:	libbonobo-devel >= 2.10.0
+BuildRequires:	libgnomeui-devel >= 2.12.0
+BuildRequires:	libtool
 BuildRequires:	libxml2-devel
-BuildRequires:	nautilus-devel >= 2.10.0
-Requires:	nautilus >= 2.10.0
+BuildRequires:	nautilus-devel >= 2.12.0
+Requires:	nautilus >= 2.12.0
 Requires:	python-libxml2
-Requires:	python-pygtk-glade >= 2.0.0
+Requires:	python-pygtk-glade >= 2.8.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -29,17 +34,20 @@ pliku wybranym w Nautilusie.
 %setup -q
 %patch0 -p1
 
-sed -i -e 's/gcc/%{__cc} %{rpmcflags}/' Makefile
-
 %build
+%{__aclocal}
+%{__autoconf}
+%{__automake}
+%configure
 %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT \
-	libdir=%{_libdir}
+	DESTDIR=$RPM_BUILD_ROOT
+
+rm -f $RPM_BUILD_ROOT%{_libdir}/nautilus/extensions-1.0/*.la
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -48,11 +56,6 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog
 %attr(755,root,root) %{_bindir}/*
-%dir %{_datadir}/%{name}
-%{_datadir}/%{name}/config_newaction.xml
-%dir %{_datadir}/%{name}/nact
-%{_datadir}/%{name}/nact/nautilus-actions-config.glade
-%attr(755,root,root)%{_datadir}/%{name}/nact/nautilus-actions-config.py
-%{_datadir}/%{name}/nact/nautilus-launch-icon.png
+%{_datadir}/%{name}
 %{_desktopdir}/*
 %attr(755,root,root) %{_libdir}/nautilus/extensions-1.0/*.so
