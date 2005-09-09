@@ -10,6 +10,7 @@ Source0:	%{name}-%{version}.tar.gz
 Patch0:		%{name}-desktop.patch
 URL:		http://www.grumz.net/?q=taxonomy/term/2/9
 BuildRequires:	autoconf >= 2.52
+BuildRequires:	automake
 BuildRequires:	gettext-devel
 BuildRequires:	glib2-devel >= 1:2.8.1
 BuildRequires:	libbonobo-devel >= 2.10.0
