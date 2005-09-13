@@ -1,21 +1,13 @@
-diff -urN nautilus-actions-0.6.orig/nact/nact.desktop.in.in nautilus-actions-0.6/nact/nact.desktop.in.in
---- nautilus-actions-0.6.orig/nact/nact.desktop.in.in	2005-09-09 10:10:11.101072192 +0200
-+++ nautilus-actions-0.6/nact/nact.desktop.in.in	2005-09-09 10:12:18.855650544 +0200
-@@ -1,12 +1,11 @@
- [Desktop Entry]
--Version=%%%VERSION%%%
-+Version=@VERSION@
- Encoding=UTF-8
- Name=Nautilus Actions Configuration
-+Name[pl]=Konfiguracja akcji Nautilusa
+diff -urN nautilus-actions-0.7.orig/nact/nact.desktop.in.in nautilus-actions-0.7/nact/nact.desktop.in.in
+--- nautilus-actions-0.7.orig/nact/nact.desktop.in.in	2005-09-13 21:10:06.530781928 +0200
++++ nautilus-actions-0.7/nact/nact.desktop.in.in	2005-09-13 21:51:55.283393560 +0200
+@@ -5,7 +5,5 @@
  Type=Application
- Comment=Add items to the Nautilus context menu
-+Comment[pl]=Dodaje elementy do menu kontekstowego Nautilusa
+ _Comment=Add items to the Nautilus context menu
  Exec=nautilus-actions-config
--Icon=@datadir@datadir@/pixmaps/nautilus-launch-icon.png
+-Icon=@DATADIR@/pixmaps/nautilus-launch-icon.png
 -Categories=Application;FileManager;DesktopSettings;Settings;AdvancedSettings;
--#Categories=GNOME;Application;SystemSetup
 -GenericName[en_US]=Nautilus Actions Configuration Tool
 -Name[en_US]=Nautilus Actions Configuration
-+Icon=@datadir@/nautilus-actions/nact/nautilus-launch-icon.png
++Icon=@DATADIR@/nautilus-actions/nact/nautilus-launch-icon.png
 +Categories=GTK;GNOME;Settings;AdvancedSettings;X-Capplet;
