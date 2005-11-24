@@ -1,13 +1,9 @@
-diff -aurN nautilus-actions-0.7.1.orig/nact/nact.desktop.in.in nautilus-actions-0.7.1/nact/nact.desktop.in.in
---- nautilus-actions-0.7.1.orig/nact/nact.desktop.in.in	2005-09-26 15:53:11.000000000 +0200
-+++ nautilus-actions-0.7.1/nact/nact.desktop.in.in	2005-10-30 21:47:14.000000000 +0100
-@@ -4,6 +4,6 @@
- Encoding=UTF-8
- _Name=Nautilus Actions Configuration
- _Comment=Add items to the Nautilus context menu
--Exec=@BINDIR@/nautilus-actions-config
--Icon=nautilus-actions-icon.png
+diff -aurN nautilus-actions-0.99.orig/nact/nact.desktop.in nautilus-actions-0.99/nact/nact.desktop.in
+--- nautilus-actions-0.99.orig/nact/nact.desktop.in	2005-10-28 15:32:52.000000000 +0200
++++ nautilus-actions-0.99/nact/nact.desktop.in	2005-11-24 21:23:53.000000000 +0100
+@@ -6,4 +6,4 @@
+ _Comment=Add items to the Nautilus popup menu
+ Exec=nautilus-actions-config
+ Icon=nautilus-actions-icon.png
 -Categories=Application;FileManager;DesktopSettings;Settings;AdvancedSettings;
-+Exec=nautilus-actions-config
-+Icon=nautilus-actions-icon
 +Categories=GTK;GNOME;Settings;AdvancedSettings;X-Capplet;
