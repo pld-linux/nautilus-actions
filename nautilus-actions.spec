@@ -1,15 +1,14 @@
 Summary:	Nautilus extension which adds customized command in Nautilus menu
 Summary(pl):	Rozszerzenie dodaj±ce w³asne polecenia w menu Nautilusa
 Name:		nautilus-actions
-Version:	0.99
-Release:	2
+Version:	1.0
+Release:	1
 License:	GPL v2
 Group:		X11/Applications
 Source0:	ftp://ftp2.grumz.net/grumz/%{name}-%{version}.tar.gz
-# Source0-md5:	682d452e4b05c77b5a258c7ec49634bc
+# Source0-md5:	fde8d7ad832009bfd1746bf076e8a838
 Patch0:		%{name}-desktop.patch
 URL:		http://www.grumz.net/node/8/
-BuildRequires:	GConf2-devel >= 2.8.0
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
 BuildRequires:	gettext-devel
@@ -20,8 +19,8 @@ BuildRequires:	libglade2 >= 2.4.0
 BuildRequires:	libgnomeui-devel >= 2.12.0
 BuildRequires:	libtool
 BuildRequires:	libxml2-devel >= 1:2.6.0
+BuildRequires:	libuuid-devel
 BuildRequires:	nautilus-devel >= 2.12.0
-Requires(post,preun):	GConf2
 Requires:	nautilus >= 2.12.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -60,12 +59,6 @@ rm -f $RPM_BUILD_ROOT%{_libdir}/nautilus/extensions-1.0/*.la
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%post
-%gconf_schema_install config_newaction.schemas
-
-%preun
-%gconf_schema_uninstall config_newaction.schemas
-
 %files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog
@@ -74,4 +67,3 @@ rm -rf $RPM_BUILD_ROOT
 %{_desktopdir}/*
 %{_pixmapsdir}/*.png
 %attr(755,root,root) %{_libdir}/nautilus/extensions-1.0/*.so
-%{_sysconfdir}/gconf/schemas/config_newaction.schemas
