@@ -18,8 +18,8 @@ BuildRequires:	libbonobo-devel >= 2.10.0
 BuildRequires:	libglade2 >= 2.4.0
 BuildRequires:	libgnomeui-devel >= 2.12.0
 BuildRequires:	libtool
-BuildRequires:	libxml2-devel >= 1:2.6.0
 BuildRequires:	libuuid-devel
+BuildRequires:	libxml2-devel >= 1:2.6.0
 BuildRequires:	nautilus-devel >= 2.12.0
 Requires:	nautilus >= 2.12.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -43,7 +43,7 @@ pliku wybranym w Nautilusie.
 %configure \
 	--disable-schemas-install \
 	--enable-commandline-tool
-	
+
 %{__make}
 
 %install
