@@ -1,9 +1,9 @@
-diff -aurN nautilus-actions-0.99.orig/nact/nact.desktop.in nautilus-actions-0.99/nact/nact.desktop.in
---- nautilus-actions-0.99.orig/nact/nact.desktop.in	2005-10-28 15:32:52.000000000 +0200
-+++ nautilus-actions-0.99/nact/nact.desktop.in	2005-11-24 21:23:53.000000000 +0100
+diff -urN nautilus-actions-1.2.orig/nact/nact.desktop.in nautilus-actions-1.2/nact/nact.desktop.in
+--- nautilus-actions-1.2.orig/nact/nact.desktop.in	2006-05-02 15:51:47.000000000 +0200
++++ nautilus-actions-1.2/nact/nact.desktop.in	2006-05-02 15:55:26.000000000 +0200
 @@ -6,4 +6,4 @@
  _Comment=Add items to the Nautilus popup menu
  Exec=nautilus-actions-config
- Icon=nautilus-actions-icon.png
+ Icon=nautilus-actions
 -Categories=Application;FileManager;DesktopSettings;Settings;AdvancedSettings;
 +Categories=GTK;GNOME;Settings;AdvancedSettings;X-Capplet;
