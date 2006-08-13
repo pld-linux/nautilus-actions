@@ -13,17 +13,18 @@ URL:		http://www.grumz.net/node/8/
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
 BuildRequires:	gettext-devel
-BuildRequires:	glib2-devel >= 1:2.8.1
-BuildRequires:	intltool
-BuildRequires:	libbonobo-devel >= 2.10.0
-BuildRequires:	libglade2 >= 2.4.0
-BuildRequires:	libgnomeui-devel >= 2.12.0
+BuildRequires:	glib2-devel >= 1:2.12.1
+BuildRequires:	intltool >= 0.35
+BuildRequires:	libbonobo-devel >= 2.15.2
+BuildRequires:	libglade2-devel >= 1:2.6.0
+BuildRequires:	libgnomeui-devel >= 2.15.91
 BuildRequires:	libtool
 BuildRequires:	libuuid-devel
-BuildRequires:	libxml2-devel >= 1:2.6.0
-BuildRequires:	nautilus-devel >= 2.12.0
+BuildRequires:	libxml2-devel >= 1:2.6.26
+BuildRequires:	nautilus-devel >= 2.15.91
+BuildRequires:	rpmbuild(macros) >= 1.311
 Requires:	hicolor-icon-theme
-Requires:	nautilus >= 2.12.0
+Requires:	nautilus >= 2.15.91
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -61,6 +62,12 @@ rm -f $RPM_BUILD_ROOT%{_libdir}/nautilus/extensions-1.0/*.la
 
 %clean
 rm -rf $RPM_BUILD_ROOT
+
+%post
+%update_icon_cache hicolor
+
+%postun
+%update_icon_cache hicolor
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
