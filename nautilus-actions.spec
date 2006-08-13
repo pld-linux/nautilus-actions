@@ -8,6 +8,7 @@ Group:		X11/Applications
 Source0:	ftp://ftp2.grumz.net/grumz/%{name}-%{version}.tar.gz
 # Source0-md5:	d1d4bf81c0f611610d33cfec59c5e549
 Patch0:		%{name}-desktop.patch
+Patch1:		%{name}-ldadd.patch
 URL:		http://www.grumz.net/node/8/
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
@@ -36,6 +37,7 @@ pliku wybranym w Nautilusie.
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
 
 %build
 %{__aclocal}
