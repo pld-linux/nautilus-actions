@@ -1,19 +1,19 @@
 Summary:	Nautilus extension which adds customized command in Nautilus menu
 Summary(pl):	Rozszerzenie dodaj±ce w³asne polecenia w menu Nautilusa
 Name:		nautilus-actions
-Version:	1.2
-Release:	3
+Version:	1.4
+Release:	1
 License:	GPL v2
 Group:		X11/Applications
 Source0:	ftp://ftp2.grumz.net/grumz/%{name}-%{version}.tar.gz
-# Source0-md5:	d1d4bf81c0f611610d33cfec59c5e549
+# Source0-md5:	c3434900718401e13432533eab10e681
 Patch0:		%{name}-desktop.patch
 Patch1:		%{name}-ldadd.patch
 URL:		http://www.grumz.net/node/8/
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
 BuildRequires:	gettext-devel
-BuildRequires:	glib2-devel >= 1:2.12.1
+BuildRequires:	glib2-devel >= 1:2.12.2
 BuildRequires:	intltool >= 0.35
 BuildRequires:	libbonobo-devel >= 2.15.2
 BuildRequires:	libglade2-devel >= 1:2.6.0
@@ -21,10 +21,10 @@ BuildRequires:	libgnomeui-devel >= 2.15.91
 BuildRequires:	libtool
 BuildRequires:	libuuid-devel
 BuildRequires:	libxml2-devel >= 1:2.6.26
-BuildRequires:	nautilus-devel >= 2.15.91
+BuildRequires:	nautilus-devel >= 2.15.92
 BuildRequires:	rpmbuild(macros) >= 1.311
 Requires:	hicolor-icon-theme
-Requires:	nautilus >= 2.15.91
+Requires:	nautilus >= 2.15.92
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
