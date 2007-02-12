@@ -1,5 +1,5 @@
 Summary:	Nautilus extension which adds customized command in Nautilus menu
-Summary(pl):	Rozszerzenie dodaj±ce w³asne polecenia w menu Nautilusa
+Summary(pl.UTF-8):   Rozszerzenie dodajÄ…ce wÅ‚asne polecenia w menu Nautilusa
 Name:		nautilus-actions
 Version:	1.4
 Release:	1
@@ -31,8 +31,8 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Nautilus extension which allow to configure program to be launch on
 files selected into Nautilus interface.
 
-%description -l pl
-Rozszerzenie pozwalaj±ce na skonfigurowanie programu uruchamianego na
+%description -l pl.UTF-8
+Rozszerzenie pozwalajÄ…ce na skonfigurowanie programu uruchamianego na
 pliku wybranym w Nautilusie.
 
 %prep
