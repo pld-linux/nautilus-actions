@@ -1,5 +1,5 @@
 Summary:	Nautilus extension which adds customized command in Nautilus menu
-Summary(pl.UTF-8):   Rozszerzenie dodające własne polecenia w menu Nautilusa
+Summary(pl.UTF-8):	Rozszerzenie dodające własne polecenia w menu Nautilusa
 Name:		nautilus-actions
 Version:	1.4
 Release:	1
