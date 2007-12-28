@@ -1,14 +1,13 @@
 Summary:	Nautilus extension which adds customized command in Nautilus menu
 Summary(pl.UTF-8):	Rozszerzenie dodające własne polecenia w menu Nautilusa
 Name:		nautilus-actions
-Version:	1.4
-Release:	2
+Version:	1.4.1
+Release:	1
 License:	GPL v2
 Group:		X11/Applications
 Source0:	ftp://ftp2.grumz.net/grumz/%{name}-%{version}.tar.gz
-# Source0-md5:	c3434900718401e13432533eab10e681
+# Source0-md5:	3e4af1af386bc2141dc509999767b207
 Patch0:		%{name}-desktop.patch
-Patch1:		%{name}-ldadd.patch
 URL:		http://www.grumz.net/node/8/
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
@@ -38,7 +37,6 @@ pliku wybranym w Nautilusie.
 %prep
 %setup -q
 %patch0 -p1
-%patch1 -p1
 
 %build
 %{__intltoolize}
