@@ -1,23 +1,24 @@
 Summary:	Nautilus extension which adds customized command in Nautilus menu
 Summary(pl.UTF-8):	Rozszerzenie dodające własne polecenia w menu Nautilusa
 Name:		nautilus-actions
-Version:	1.4.1
-Release:	2
+Version:	1.12.3
+Release:	1
 License:	GPL v2
 Group:		X11/Applications
-Source0:	ftp://ftp2.grumz.net/grumz/%{name}-%{version}.tar.gz
-# Source0-md5:	3e4af1af386bc2141dc509999767b207
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/nautilus-actions/1.12/%{name}-%{version}.tar.bz2
+# Source0-md5:	0f83eea8306593cf807ed26f4c1479aa
 Patch0:		%{name}-desktop.patch
 URL:		http://www.grumz.net/node/8/
-BuildRequires:	autoconf >= 2.52
+BuildRequires:	GConf2-devel >= 2.8.0
+BuildRequires:	autoconf >= 2.53
 BuildRequires:	automake
 BuildRequires:	gettext-devel
-BuildRequires:	glib2-devel >= 1:2.12.2
-BuildRequires:	intltool >= 0.35
-BuildRequires:	libbonobo-devel >= 2.15.2
-BuildRequires:	libglade2-devel >= 1:2.6.0
-BuildRequires:	libgnomeui-devel >= 2.15.91
+BuildRequires:	glib2-devel >= 1:2.16.0
+BuildRequires:	gtk+2-devel >= 2:2.12.0
+BuildRequires:	gnome-common
+BuildRequires:	intltool >= 0.40.0
 BuildRequires:	libtool
+BuildRequires:	libunique-devel
 BuildRequires:	libuuid-devel
 BuildRequires:	libxml2-devel >= 1:2.6.26
 BuildRequires:	nautilus-devel >= 2.22.0
@@ -41,12 +42,13 @@ pliku wybranym w Nautilusie.
 
 %build
 %{__intltoolize}
-%{__aclocal}
+%{__libtoolize}
+%{__aclocal} -I m4
 %{__autoconf}
+%{__autoheader}
 %{__automake}
 %configure \
-	--disable-schemas-install \
-	--enable-commandline-tool
+	--disable-schemas-install
 
 %{__make}
 
