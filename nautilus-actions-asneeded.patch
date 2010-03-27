@@ -1,0 +1,11 @@
+diff -urN nautilus-actions-2.30.0/src/core/Makefile.am nautilus-actions-2.30.0.new//src/core/Makefile.am
+--- nautilus-actions-2.30.0/src/core/Makefile.am	2010-03-25 22:16:22.000000000 +0100
++++ nautilus-actions-2.30.0.new//src/core/Makefile.am	2010-03-26 22:55:41.321226236 +0100
+@@ -99,6 +99,7 @@
+ 	$(NULL)
+ 
+ libna_core_la_LIBADD = \
++	$(NAUTILUS_ACTIONS_LIBS)								\
+ 	$(NULL)
+ 
+ libna_core_la_LDFLAGS = \
