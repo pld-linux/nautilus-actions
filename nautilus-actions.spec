@@ -2,7 +2,7 @@ Summary:	Nautilus extension which adds customized command in Nautilus menu
 Summary(pl.UTF-8):	Rozszerzenie dodające własne polecenia w menu Nautilusa
 Name:		nautilus-actions
 Version:	2.30.3
-Release:	1
+Release:	2
 License:	GPL v2
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/nautilus-actions/2.30/%{name}-%{version}.tar.bz2
@@ -27,7 +27,7 @@ BuildRequires:	nautilus-devel >= 2.22.0
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.311
 BuildRequires:	xorg-lib-libSM-devel
-Requires(post,postun):	gtk+2
+Requires(post,postun):	gtk-update-icon-cache
 Requires(post,postun):	hicolor-icon-theme
 Requires:	nautilus >= 2.22.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
