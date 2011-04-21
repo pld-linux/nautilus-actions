@@ -1,14 +1,13 @@
 Summary:	Nautilus extension which adds customized command in Nautilus menu
 Summary(pl.UTF-8):	Rozszerzenie dodające własne polecenia w menu Nautilusa
 Name:		nautilus-actions
-Version:	3.0.7
+Version:	3.1.2
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/nautilus-actions/3.0/%{name}-%{version}.tar.bz2
-# Source0-md5:	40b3807e7ddc0926782d2d85e99e2fc4
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/nautilus-actions/3.1/%{name}-%{version}.tar.bz2
+# Source0-md5:	7223c974d210cc90dbddfe5364d1f71b
 Patch0:		%{name}-desktop.patch
-Patch1:		%{name}-toolbar.patch
 URL:		http://www.grumz.net/node/8/
 BuildRequires:	GConf2-devel >= 2.8.0
 BuildRequires:	autoconf >= 2.53
@@ -57,7 +56,6 @@ Pliki nagłówkowe nautilus-actions.
 %prep
 %setup -q
 %patch0 -p1
-%patch1 -p1
 
 %build
 %{__intltoolize}
@@ -96,9 +94,12 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS ChangeLog
 %attr(755,root,root) %{_bindir}/nautilus-actions-config-tool
 %attr(755,root,root) %{_bindir}/nautilus-actions-new
+%attr(755,root,root) %{_bindir}/nautilus-actions-print
 %attr(755,root,root) %{_bindir}/nautilus-actions-run
-%attr(755,root,root) %{_bindir}/nautilus-actions-schemas
 %dir %{_libdir}/nautilus-actions
+%attr(755,root,root) %{_libdir}/nautilus-actions/na-delete-xmltree
+%attr(755,root,root) %{_libdir}/nautilus-actions/na-gconf2key.sh
+%attr(755,root,root) %{_libdir}/nautilus-actions/na-print-schemas
 %attr(755,root,root) %{_libdir}/nautilus-actions/libna-core.so
 %attr(755,root,root) %{_libdir}/nautilus-actions/libna-io-desktop.so
 %attr(755,root,root) %{_libdir}/nautilus-actions/libna-io-gconf.so
