@@ -1,14 +1,17 @@
+#
+# Conditinal build:
+%bcond_without	apidocs		# disable API documentation
+
 Summary:	Nautilus extension which adds customized command in Nautilus menu
 Summary(pl.UTF-8):	Rozszerzenie dodające własne polecenia w menu Nautilusa
 Name:		nautilus-actions
-Version:	3.0.7
+Version:	3.2.2
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/nautilus-actions/3.0/%{name}-%{version}.tar.bz2
-# Source0-md5:	40b3807e7ddc0926782d2d85e99e2fc4
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/nautilus-actions/3.2/%{name}-%{version}.tar.xz
+# Source0-md5:	a84d89d50d958edd6b6b9798c9b78904
 Patch0:		%{name}-desktop.patch
-Patch1:		%{name}-toolbar.patch
 URL:		http://www.grumz.net/node/8/
 BuildRequires:	GConf2-devel >= 2.8.0
 BuildRequires:	autoconf >= 2.53
@@ -54,10 +57,21 @@ Header files for nautilus-actions.
 %description devel -l pl.UTF-8
 Pliki nagłówkowe nautilus-actions.
 
+%package apidocs
+Summary:	Nautilus Actions API documentation
+Summary(pl.UTF-8):	Dokumentacja API Nautilus Actions
+Group:		Documentation
+Requires:	gtk-doc-common
+
+%description apidocs
+Nautilus Actions API documentation.
+
+%description apidocs -l pl.UTF-8
+Dokumentacja API Nautilus Actions.
+
 %prep
 %setup -q
 %patch0 -p1
-%patch1 -p1
 
 %build
 %{__intltoolize}
@@ -67,6 +81,8 @@ Pliki nagłówkowe nautilus-actions.
 %{__autoheader}
 %{__automake}
 %configure \
+	--%{?with_apidocs:en}%{!?with_apidocs:dis}able-gtk-doc \
+	--with-html-dir=%{_gtkdocdir} \
 	--disable-schemas-install
 
 %{__make}
@@ -77,10 +93,16 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
+rm -rf docs-installed
+cp -a $RPM_BUILD_ROOT%{_docdir}/%{name}-%{version} docs-installed
+%{__rm} -r $RPM_BUILD_ROOT%{_docdir}/%{name}-%{version}
+
 %{__rm} $RPM_BUILD_ROOT%{_libdir}/nautilus/extensions-3.0/*.la
 %{__rm} $RPM_BUILD_ROOT%{_libdir}/nautilus-actions/*.la
 
-%find_lang %{name}
+%{!?with_apidocs:%{__rm} -rf $RPM_BUILD_ROOT%{_gtkdocdir}}
+
+%find_lang %{name} --with-gnome --with-omf --all-name
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -93,16 +115,20 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc AUTHORS ChangeLog
+%doc docs-installed/*
 %attr(755,root,root) %{_bindir}/nautilus-actions-config-tool
 %attr(755,root,root) %{_bindir}/nautilus-actions-new
+%attr(755,root,root) %{_bindir}/nautilus-actions-print
 %attr(755,root,root) %{_bindir}/nautilus-actions-run
-%attr(755,root,root) %{_bindir}/nautilus-actions-schemas
 %dir %{_libdir}/nautilus-actions
 %attr(755,root,root) %{_libdir}/nautilus-actions/libna-core.so
 %attr(755,root,root) %{_libdir}/nautilus-actions/libna-io-desktop.so
 %attr(755,root,root) %{_libdir}/nautilus-actions/libna-io-gconf.so
 %attr(755,root,root) %{_libdir}/nautilus-actions/libna-io-xml.so
+%attr(755,root,root) %{_libdir}/nautilus-actions/na-delete-xmltree
+%attr(755,root,root) %{_libdir}/nautilus-actions/na-gconf2key.sh
+%attr(755,root,root) %{_libdir}/nautilus-actions/na-print-schemas
+%attr(755,root,root) %{_libdir}/nautilus-actions/na-set-conf
 %{_datadir}/%{name}
 %{_desktopdir}/nact.desktop
 %{_iconsdir}/hicolor/*/apps/*.png
@@ -113,3 +139,9 @@ rm -rf $RPM_BUILD_ROOT
 %files devel
 %defattr(644,root,root,755)
 %{_includedir}/nautilus-actions
+
+%if %{with apidocs}
+%files apidocs
+%defattr(644,root,root,755)
+%{_gtkdocdir}/nautilus-actions-3
+%endif

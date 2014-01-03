@@ -2,9 +2,9 @@ diff -urN nautilus-actions-2.30.0/src/nact/nact.desktop.in nautilus-actions-2.30
 --- nautilus-actions-2.30.0/src/nact/nact.desktop.in	2010-03-25 22:16:28.000000000 +0100
 +++ nautilus-actions-2.30.0.new//src/nact/nact.desktop.in	2010-03-26 22:12:03.198163675 +0100
 @@ -6,5 +6,5 @@
- _Comment=Add items to the Nautilus popup menu
+ _Comment=Configure items to be added to the Nautilus context menus
  Exec=nautilus-actions-config-tool
  Icon=nautilus-actions
--Categories=Application;FileManager;DesktopSettings;Settings;AdvancedSettings;
-+Categories=GTK;GNOME;Settings;AdvancedSettings;X-Capplet;
+-Categories=System;FileTools;FileManager;
++Categories=GTK;GNOME;Settings;System;FileTools;FileManager;
  StartupNotify=true
