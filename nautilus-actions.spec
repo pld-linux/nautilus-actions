@@ -71,9 +71,7 @@ Summary:	Nautilus Actions API documentation
 Summary(pl.UTF-8):	Dokumentacja API Nautilus Actions
 Group:		Documentation
 Requires:	gtk-doc-common
-%if "%{_rpmversion}" >= "5"
 BuildArch:	noarch
-%endif
 
 %description apidocs
 Nautilus Actions API documentation.
